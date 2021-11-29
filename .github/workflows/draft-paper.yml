@@ -22,13 +22,13 @@ jobs:
           repository_url: ${{ github.event.inputs.repository_url }}
           branch: ${{ github.event.inputs.branch }}
           issue_id: ${{ github.event.inputs.issue_id }}
-          journal: joss
+          journal: test_journal
       - name: Upload file to papers repo
         id: upload-pdf
         uses: xuanxu/upload-paper-action@main
         with:
           papers_repo: openjournals/joss-papers-testing
-          branch_prefix: joss
+          branch_prefix: joss-testing
           issue_id: ${{ github.event.inputs.issue_id }}
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           bot_token: ${{ secrets.BOT_TOKEN }}
