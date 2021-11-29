@@ -14,6 +14,8 @@ on:
 jobs:
   creating-artifacts:
     runs-on: ubuntu-latest
+    env:
+      GH_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
     steps:
       - name: Compile Paper
         id: generate-files
