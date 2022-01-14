@@ -36,14 +36,14 @@ jobs:
           bot_token: ${{ secrets.BOT_TOKEN }}
       - name: Upload metadata files
         id: upload-metadata
-          uses: xuanxu/upload-metadata-action@main
-          with:
-            papers_repo: openjournals/joss-papers-testing
-            branch_prefix: joss-testing
-            issue_id: ${{ github.event.inputs.issue_id }}
-            jats_path: ${{ steps.generate-files.outputs.jats_path}}
-            crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
-            bot_token: ${{ secrets.BOT_TOKEN }}
+        uses: xuanxu/upload-metadata-action@main
+        with:
+          papers_repo: openjournals/joss-papers-testing
+          branch_prefix: joss-testing
+          issue_id: ${{ github.event.inputs.issue_id }}
+          jats_path: ${{ steps.generate-files.outputs.jats_path}}
+          crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
+          bot_token: ${{ secrets.BOT_TOKEN }}
       - name: Open Pull Request
         id: open-pr
         uses: xuanxu/deposit-pull-request-action@main
