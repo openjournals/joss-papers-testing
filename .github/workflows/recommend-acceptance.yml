@@ -49,6 +49,7 @@ jobs:
         uses: xuanxu/deposit-pull-request-action@main
         with:
           papers_repo: openjournals/joss-papers-testing
+          papers_repo_main_branch: master
           branch_prefix: joss-testing
           issue_id: ${{ github.event.inputs.issue_id }}
           bot_token: ${{ secrets.BOT_TOKEN }}
