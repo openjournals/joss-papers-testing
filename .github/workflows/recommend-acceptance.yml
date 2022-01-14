@@ -34,17 +34,38 @@ jobs:
           issue_id: ${{ github.event.inputs.issue_id }}
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           bot_token: ${{ secrets.BOT_TOKEN }}
+      - name: Upload metadata files
+        id: upload-metadata
+          uses: xuanxu/upload-metadata-action@main
+          with:
+            papers_repo: openjournals/joss-papers-testing
+            branch_prefix: joss-testing
+            issue_id: ${{ github.event.inputs.issue_id }}
+            jats_path: ${{ steps.generate-files.outputs.jats_path}}
+            crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
+            bot_token: ${{ secrets.BOT_TOKEN }}
+      - name: Open Pull Request
+        id: open-pr
+        uses: xuanxu/deposit-pull-request-action@main
+        with:
+          papers_repo: openjournals/joss-papers-testing
+          branch_prefix: joss-testing
+          issue_id: ${{ github.event.inputs.issue_id }}
+          bot_token: ${{ secrets.BOT_TOKEN }}
+          mode: dry-run
       - name: Reply message
         if: ${{ success() }}
         run: |
-          gh issue comment ${{ github.event.inputs.issue_id }} --body ":point_right::page_facing_up: [Download article proof](${{ steps.upload-pdf.outputs.download_url}}) :page_facing_up: [View article proof on GitHub](${{ steps.upload-pdf.outputs.html_url}}) :page_facing_up: :point_left:"
+          gh issue comment ${{ github.event.inputs.issue_id }} --body ":wave: this paper is ready to be accepted and published.
+          Check final proof :point_right: ${{ steps.open-pr.outputs.pr_url}}
+          If the paper PDF and the deposit XML files look good in ${{ steps.open-pr.outputs.pr_url}}, then you can now move forward with accepting the submission by compiling again with the command \`@botsci publish paper\`"
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           GH_REPO: openjournals/joss-reviews-testing
       - name: Error message
         if: ${{ failure() }}
         run: |
-          gh issue comment ${{ github.event.inputs.issue_id }} --body ":warning: Couldn't generate the pdf. [An error happened](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?check_suite_focus=true)."
+          gh issue comment ${{ github.event.inputs.issue_id }} --body ":warning: Couldn't prepare acceptance. [An error happened](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?check_suite_focus=true)."
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           GH_REPO: openjournals/joss-reviews-testing
