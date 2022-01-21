@@ -25,25 +25,16 @@ jobs:
           branch: ${{ github.event.inputs.branch }}
           issue_id: ${{ github.event.inputs.issue_id }}
           journal: test_journal
-      - name: Upload file to papers repo
-        id: upload-pdf
-        uses: xuanxu/upload-paper-action@main
+      - name: Upload files to papers repo
+        id: upload-files
+        uses: xuanxu/upload-files-action@main
         with:
           papers_repo: openjournals/joss-papers-testing
           branch_prefix: joss-testing
           issue_id: ${{ github.event.inputs.issue_id }}
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
-          bot_token: ${{ secrets.BOT_TOKEN }}
-      - name: Upload metadata files
-        id: upload-metadata
-        uses: xuanxu/upload-metadata-action@main
-        with:
-          papers_repo: openjournals/joss-papers-testing
-          branch_prefix: joss-testing
-          issue_id: ${{ github.event.inputs.issue_id }}
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
           crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
-          bot_token: ${{ secrets.BOT_TOKEN }}
       - name: Create Pull Request
         id: open-pr
         uses: xuanxu/deposit-pull-request-action@main
