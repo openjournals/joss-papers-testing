@@ -33,7 +33,6 @@ jobs:
           branch_prefix: joss-testing
           issue_id: ${{ github.event.inputs.issue_id }}
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
-          bot_token: ${{ secrets.BOT_TOKEN }}
       - name: Upload metadata files
         id: upload-metadata
         uses: xuanxu/upload-metadata-action@main
@@ -43,7 +42,6 @@ jobs:
           issue_id: ${{ github.event.inputs.issue_id }}
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
           crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
-          bot_token: ${{ secrets.BOT_TOKEN }}
       - name: Open Pull Request
         id: open-pr
         uses: xuanxu/deposit-pull-request-action@main
@@ -52,7 +50,6 @@ jobs:
           papers_repo_main_branch: master
           branch_prefix: joss-testing
           issue_id: ${{ github.event.inputs.issue_id }}
-          bot_token: ${{ secrets.BOT_TOKEN }}
           mode: dry-run
       - name: Reply message
         if: ${{ success() }}
@@ -61,7 +58,7 @@ jobs:
 
           Check final proof :point_right: ${{ steps.open-pr.outputs.pr_url}}
 
-          If the paper PDF and the deposit XML files look good in ${{ steps.open-pr.outputs.pr_url}}, then you can now move forward with accepting the submission by compiling again with the command \`@botsci publish paper\`"
+          If the paper PDF and the deposit XML files look good in ${{ steps.open-pr.outputs.pr_url}}, then you can now move forward with accepting the submission by compiling again with the command \`@botsci accept\`"
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           GH_REPO: openjournals/joss-reviews-testing
