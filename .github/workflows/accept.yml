@@ -12,7 +12,7 @@ on:
         description: 'The issue number of the submission'
         required: true
 jobs:
-  preparing-for-acceptance:
+  acceptance-and-publishing:
     runs-on: ubuntu-latest
     env:
       GH_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
