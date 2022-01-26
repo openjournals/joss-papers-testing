@@ -35,8 +35,8 @@ jobs:
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
           crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
-      - name: Create Pull Request
-        id: open-pr
+      - name: Create and Merge Pull Request
+        id: pull-request
         uses: xuanxu/deposit-pull-request-action@main
         with:
           papers_repo: openjournals/joss-papers-testing
@@ -51,6 +51,7 @@ jobs:
           crossref_filepath: ${{ steps.generate-files.outputs.crossref_path}}
           crossref_username: ${{ secrets.CROSSREF_USERNAME }}
           crossref_password: ${{ secrets.CROSSREF_PASSWORD }}
+          crossref_mode: test
       - name: Deposit with JOSS
         uses: xuanxu/deposit-with-openjournals-action@main
         with:
@@ -63,7 +64,7 @@ jobs:
         run: |
           gh issue comment ${{ github.event.inputs.issue_id }} --body "🚨🚨🚨 **THIS IS NOT A DRILL, YOU HAVE JUST ACCEPTED A PAPER INTO JOSS!** 🚨🚨🚨\n\n Here's what you must now do:
 
-          0. Check final PDF and Crossref metadata that was deposited :point_right: ${{ steps.open-pr.outputs.pr_url}}
+          0. Check final PDF and Crossref metadata that was deposited :point_right: ${{ steps.pull-request.outputs.pr_url}}
           1. Wait a couple of minutes, then verify that the paper DOI resolves [#{doi}](#{doi})
           2. If everything looks good, then close this review issue.
           3. Party like you just published a paper! 🎉🌈🦄💃👻🤘
