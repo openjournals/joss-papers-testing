@@ -53,6 +53,7 @@ jobs:
           crossref_password: ${{ secrets.CROSSREF_PASSWORD }}
           crossref_mode: test
       - name: Deposit with JOSS
+        id: oj-deposit
         uses: xuanxu/deposit-with-openjournals-action@main
         with:
           journal_alias: test_journal
@@ -66,8 +67,8 @@ jobs:
 
           Here's what you must now do:
 
-          0. Check final PDF and Crossref metadata that was deposited :point_right: ${{ steps.pull-request.outputs.pr_url}}
-          1. Wait a couple of minutes, then verify that the paper DOI resolves [#{doi}](#{doi})
+          0. Check final PDF and Crossref metadata that was deposited :point_right: ${{steps.pull-request.outputs.pr_url}}
+          1. Wait a couple of minutes, then verify that the paper DOI resolves [https://doi.org/${{steps.oj-deposit.outputs.paper_doi}}](https://doi.org/${{steps.oj-deposit.outputs.paper_doi}})
           2. If everything looks good, then close this review issue.
           3. Party like you just published a paper! 🎉🌈🦄💃👻🤘
 
