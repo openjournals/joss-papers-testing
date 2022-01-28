@@ -55,7 +55,7 @@ jobs:
       - name: Deposit with JOSS
         uses: xuanxu/deposit-with-openjournals-action@main
         with:
-          journal_alias: joss-test
+          journal_alias: test_journal
           journal_secret: ${{ secrets.JOSS_SECRET }}
           issue_id: ${{ github.event.inputs.issue_id }}
           paper_path: ${{ steps.generate-files.outputs.paper_file_path}}
