@@ -60,6 +60,19 @@ jobs:
           journal_secret: ${{ secrets.JOSS_SECRET }}
           issue_id: ${{ github.event.inputs.issue_id }}
           paper_path: ${{ steps.generate-files.outputs.paper_file_path}}
+      - name: Tweet
+        uses: xuanxu/acceptance-tweet-action@main
+        with:
+          journal_name: "JOSS-TEST"
+          paper_title: ${{ steps.generate-files.outputs.paper_title}}
+          paper_doi: ${{steps.oj-deposit.outputs.paper_doi}}
+          twitter_consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          twitter_consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          twitter_access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter_access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          reviews_repo: openjournals/joss-reviews-testing
+          issue_id: ${{ github.event.inputs.issue_id }}
+          gh_token: ${{ secrets.BOT_TOKEN }}
       - name: Reply message
         if: ${{ success() }}
         run: |
