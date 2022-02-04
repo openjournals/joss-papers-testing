@@ -30,7 +30,7 @@ jobs:
         uses: xuanxu/upload-files-action@main
         with:
           papers_repo: openjournals/joss-papers-testing
-          branch_prefix: joss-testing
+          branch_prefix: test_journal
           issue_id: ${{ github.event.inputs.issue_id }}
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
@@ -41,7 +41,7 @@ jobs:
         with:
           papers_repo: openjournals/joss-papers-testing
           papers_repo_main_branch: master
-          branch_prefix: joss-testing
+          branch_prefix: test_journal
           issue_id: ${{ github.event.inputs.issue_id }}
           mode: dry-run
       - name: Reply message
