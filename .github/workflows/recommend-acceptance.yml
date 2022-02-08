@@ -44,6 +44,12 @@ jobs:
           branch_prefix: test_journal
           issue_id: ${{ github.event.inputs.issue_id }}
           mode: dry-run
+      - name: Validate metadata files
+        id: validate-xml
+        uses: xuanxu/validate-xml-files-action@main
+        with:
+          jats_path: ${{ steps.generate-files.outputs.jats_path}}
+          crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
       - name: Reply message
         if: ${{ success() }}
         run: |
