@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_batch xmlns="http://www.crossref.org/schema/5.3.1"
+           xmlns:ai="http://www.crossref.org/AccessIndicators.xsd"
+           xmlns:rel="http://www.crossref.org/relations.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           version="5.3.1"
+           xsi:schemaLocation="http://www.crossref.org/schema/5.3.1 http://www.crossref.org/schemas/crossref5.3.1.xsd">
+  <head>
+    <doi_batch_id>20220217T123021-99af3042ccab754ced178727a9ea4a6e73157793</doi_batch_id>
+    <timestamp>20220217123021</timestamp>
+    <depositor>
+      <depositor_name>JOSS Admin</depositor_name>
+      <email_address>admin@theoj.org</email_address>
+    </depositor>
+    <registrant>The Open Journal</registrant>
+  </head>
+  <body>
+    <journal>
+      <journal_metadata>
+        <full_title>Journal of Open Source Software</full_title>
+        <abbrev_title>JOSS</abbrev_title>
+        <issn media_type="electronic">2475-9066</issn>
+        <doi_data>
+          <doi>10.21105/joss</doi>
+          <resource>https://joss.theoj.org/</resource>
+        </doi_data>
+      </journal_metadata>
+      <journal_issue>
+        <publication_date media_type="online">
+          <month>02</month>
+          <year>2022</year>
+        </publication_date>
+        <journal_volume>
+          <volume>7</volume>
+        </journal_volume>
+        <issue>70</issue>
+      </journal_issue>
+      <journal_article publication_type="full_text">
+        <titles>
+          <title>PyVOLCANS: A Python package to flexibly explore
+similarities and differences between volcanic systems</title>
+        </titles>
+        <contributors>
+          <person_name sequence="first" contributor_role="author">
+            <given_name>Pablo</given_name>
+            <surname>Tierz</surname>
+            <ORCID>https://orcid.org/0000-0001-8889-9900</ORCID>
+          </person_name>
+          <person_name sequence="additional"
+                       contributor_role="author">
+            <given_name>Vyron</given_name>
+            <surname>Christodoulou</surname>
+            <ORCID>https://orcid.org/0000-0003-3835-3891</ORCID>
+          </person_name>
+          <person_name sequence="additional"
+                       contributor_role="author">
+            <given_name>John A.</given_name>
+            <surname>Stevenson</surname>
+            <ORCID>https://orcid.org/0000-0002-2245-1334</ORCID>
+          </person_name>
+          <person_name sequence="additional"
+                       contributor_role="author">
+            <given_name>Susan C.</given_name>
+            <surname>Loughlin</surname>
+          </person_name>
+        </contributors>
+        <publication_date>
+          <month>02</month>
+          <day>16</day>
+          <year>2022</year>
+        </publication_date>
+        <pages>
+          <first_page>19</first_page>
+        </pages>
+        <publisher_item>
+          <identifier id_type="doi">10.21105/test_journal.00019</identifier>
+        </publisher_item>
+        <ai:program name="AccessIndicators">
+          <ai:license_ref applies_to="vor">http://creativecommons.org/licenses/by/4.0/</ai:license_ref>
+          <ai:license_ref applies_to="am">http://creativecommons.org/licenses/by/4.0/</ai:license_ref>
+          <ai:license_ref applies_to="tdm">http://creativecommons.org/licenses/by/4.0/</ai:license_ref>
+        </ai:program>
+        <rel:program>
+          <rel:related_item>
+            <rel:description>Software archive</rel:description>
+            <rel:inter_work_relation relationship-type="references" identifier-type="doi"></rel:inter_work_relation>
+          </rel:related_item>
+          <rel:related_item>
+            <rel:description>GitHub review issue</rel:description>
+            <rel:inter_work_relation relationship-type="hasReview" identifier-type="uri">https://github.com/openjournals/joss-reviews-testing/issues/19</rel:inter_work_relation>
+          </rel:related_item>
+        </rel:program>
+        <doi_data>
+          <doi>10.21105/test_journal.00019</doi>
+          <resource>https://joss.theoj.com/joss-papers/10.21105/test_journal.00019</resource>
+          <collection property="text-mining">
+            <item>
+              <resource mime_type="application/pdf">https://joss.theoj.com/joss-papers/10.21105/test_journal.00019.pdf</resource>
+            </item>
+          </collection>
+        </doi_data>
+        <citation_list>
+          <citation key="Tierz:2020">
+            <article_title>Event trees and epistemic uncertainty in
+long-term volcanic hazard assessment of rift volcanoes: The example of
+Aluto (Central Ethiopia)</article_title>
+            <author>Tierz</author>
+            <journal_title>Geochemistry, Geophysics,
+Geosystems</journal_title>
+            <issue>10</issue>
+            <volume>21</volume>
+            <doi>10.1029/2020GC009219</doi>
+            <cYear>2020</cYear>
+          </citation>
+          <citation key="Tierz:2019">
+            <article_title>VOLCANS: An objective, structured and
+reproducible method for identifying sets of analogue
+volcanoes</article_title>
+            <author>Tierz</author>
+            <journal_title>Bulletin of Volcanology</journal_title>
+            <issue>12</issue>
+            <volume>81</volume>
+            <doi>10.1007/s00445-019-1336-3</doi>
+            <cYear>2019</cYear>
+          </citation>
+          <citation key="Loughlin:2015">
+            <volume_title>Global volcanic hazards and
+risk</volume_title>
+            <author>Loughlin</author>
+            <doi>10.1017/CBO9781316276273</doi>
+            <cYear>2015</cYear>
+          </citation>
+          <citation key="Newhall:2002">
+            <article_title>Constructing event trees for volcanic
+crises</article_title>
+            <author>Newhall</author>
+            <journal_title>Bulletin of Volcanology</journal_title>
+            <issue>1</issue>
+            <volume>64</volume>
+            <doi>10.1007/s004450100173</doi>
+            <cYear>2002</cYear>
+          </citation>
+          <citation key="Newhall:2017">
+            <article_title>WOVOdat–an online, growing library of
+worldwide volcanic unrest</article_title>
+            <author>Newhall</author>
+            <journal_title>Journal of Volcanology and Geothermal
+Research</journal_title>
+            <volume>345</volume>
+            <doi>10.1016/j.jvolgeores.2017.08.003</doi>
+            <cYear>2017</cYear>
+          </citation>
+          <citation key="Cashman:2014">
+            <article_title>Common processes at unique volcanoes–a
+volcanological conundrum</article_title>
+            <author>Cashman</author>
+            <journal_title>Frontiers in Earth Science</journal_title>
+            <volume>2</volume>
+            <doi>10.3389/feart.2014.00028</doi>
+            <cYear>2014</cYear>
+          </citation>
+          <citation key="Simmons:2021">
+            <article_title>The Quetrupillán Volcanic Complex, Chile:
+Holocene volcanism, magmatic plumbing system, and future
+hazards</article_title>
+            <author>Simmons</author>
+            <doi>10.7488/era/1087</doi>
+            <cYear>2021</cYear>
+          </citation>
+          <citation key="Siebert:2010">
+            <volume_title>Volcanoes of the World</volume_title>
+            <author>Siebert</author>
+            <cYear>2010</cYear>
+          </citation>
+          <citation key="GVP:2013">
+            <article_title>Volcanoes of the World, v. 4.10.0 (14 May
+2021)</article_title>
+            <author>Global Volcanism Program</author>
+            <doi>10.5479/si.GVP.VOTW4-2013</doi>
+            <cYear>2013</cYear>
+          </citation>
+          <citation key="Marzocchi:2021">
+            <article_title>A unified probabilistic framework for
+volcanic hazard and eruption forecasting</article_title>
+            <author>Marzocchi</author>
+            <journal_title>Natural Hazards and Earth System
+Sciences</journal_title>
+            <issue>11</issue>
+            <volume>21</volume>
+            <doi>10.5194/nhess-21-3509-2021</doi>
+            <cYear>2021</cYear>
+          </citation>
+          <citation key="Papale:2021">
+            <article_title>Some relevant issues in volcanic hazard
+forecasts and management of volcanic crisis</article_title>
+            <author>Papale</author>
+            <journal_title>Forecasting and planning for volcanic
+hazards, risks, and disasters</journal_title>
+            <doi>10.1016/B978-0-12-818082-2.00001-9</doi>
+            <cYear>2021</cYear>
+          </citation>
+        </citation_list>
+      </journal_article>
+    </journal>
+  </body>
+</doi_batch>
