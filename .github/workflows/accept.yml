@@ -37,6 +37,12 @@ jobs:
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
           crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
+      - name: Validate metadata files
+        id: validate-xml
+        uses: xuanxu/validate-xml-files-action@main
+        with:
+          jats_path: ${{ steps.generate-files.outputs.jats_path}}
+          crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
       - name: Create and Merge Pull Request
         id: pull-request
         uses: xuanxu/deposit-pull-request-action@main
