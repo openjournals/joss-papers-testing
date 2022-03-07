@@ -14,7 +14,7 @@ on:
       add_labels:
         description: 'Labels to add to the issue after successful run'
         required: false
-        default: ""
+        default: ''
 jobs:
   acceptance-and-publishing:
     name: ${{ format('Accepting paper in issue {0}', github.event.inputs.issue_id) }}
@@ -102,7 +102,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           GH_REPO: openjournals/joss-reviews-testing
       - name: Labeling
-        if: ${{ success() && github.event.inputs.add_labels != "" }}
+        if: ${{ success() && github.event.inputs.add_labels != '' }}
         run: gh issue edit ${{ github.event.inputs.issue_id }} --add-label ${{ github.event.inputs.add_labels }}
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
