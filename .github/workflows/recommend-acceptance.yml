@@ -51,7 +51,7 @@ jobs:
           mode: dry-run
       - name: Validate metadata files
         id: validate-xml
-        uses: xuanxu/validate-xml-files-action@main
+        uses: xuanxu/validate-xml-files-action@detailed_error_message
         with:
           jats_path: ${{ steps.generate-files.outputs.jats_path}}
           crossref_path: ${{ steps.generate-files.outputs.crossref_path}}
