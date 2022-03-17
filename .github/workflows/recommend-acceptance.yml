@@ -20,7 +20,7 @@ jobs:
     name: ${{ format('Prepare paper acceptance in issue {0}', github.event.inputs.issue_id) }}
     runs-on: ubuntu-latest
     env:
-      GH_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       GH_REPO: openjournals/joss-reviews-testing
       ISSUE_ID: ${{ github.event.inputs.issue_id }}
