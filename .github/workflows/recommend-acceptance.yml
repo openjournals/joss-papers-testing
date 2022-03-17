@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       GH_REPO: openjournals/joss-reviews-testing
       DEFAULT_ERROR: ":warning: [Error prepararing paper acceptance](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?check_suite_focus=true)."
     steps:
