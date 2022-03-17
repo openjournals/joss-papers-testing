@@ -20,8 +20,9 @@ jobs:
     name: ${{ format('Prepare paper acceptance in issue {0}', github.event.inputs.issue_id) }}
     runs-on: ubuntu-latest
     env:
-      GH_ACCESS_TOKEN: ${{ secrets.BOT_TOKEN }}
+      GH_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: openjournals/joss-reviews-testing
+      DEFAULT_ERROR: ":warning: [Error prepararing paper acceptance](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?check_suite_focus=true)."
     steps:
       - name: Compile Paper
         id: generate-files
@@ -65,17 +66,11 @@ jobs:
           Check final proof :point_right: ${{ steps.open-pr.outputs.pr_url}}
 
           If the paper PDF and the deposit XML files look good in ${{ steps.open-pr.outputs.pr_url}}, then you can now move forward with accepting the submission by compiling again with the command \`@botsci accept\`"
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-          GH_REPO: openjournals/joss-reviews-testing
       - name: Labeling
         if: ${{ success() && github.event.inputs.add_labels != '' }}
         run: gh issue edit ${{ github.event.inputs.issue_id }} --add-label ${{ github.event.inputs.add_labels }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-          GH_REPO: openjournals/joss-reviews-testing
       - name: Error message
         if: ${{ failure() }}
         run: |
-          gh issue comment ${{ github.event.inputs.issue_id }} --body ":warning: [Error prepararing acceptance](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}?check_suite_focus=true). ${{ env.CUSTOM_ERROR }}"
+          gh issue comment ${{ github.event.inputs.issue_id }} --body "${{ env.DEFAULT_ERROR }} ${{ env.CUSTOM_ERROR }}"
 
