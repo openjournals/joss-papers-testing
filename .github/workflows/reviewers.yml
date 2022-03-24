@@ -29,4 +29,4 @@ jobs:
       - name: Test Python
         uses: xuanxu/test-python-action@main
         with:
-          pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
+          paper_path: ${{ steps.generate-files.outputs.pdf_path}}
