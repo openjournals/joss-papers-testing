@@ -1,0 +1,15 @@
+name: Retract paper
+on:
+  workflow_dispatch:
+    inputs:
+      retraction_notice_url:
+        description: 'URL of the retraction notice markdown file'
+        required: true
+      issue_id:
+        description: 'The issue number of the submission'
+        required: true
+      mode:
+        description: 'dry-run or final'
+        required: false
+        default: 'final'
+        
