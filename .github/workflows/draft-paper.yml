@@ -11,6 +11,9 @@ on:
       issue_id:
         description: 'The issue number of the submission'
         required: true
+      issue_title:
+        description: 'The issue title associated with the JOSS review'
+        required: true
 jobs:
   pdf-generation:
     name: ${{ format('PDF draft for issue {0}', github.event.inputs.issue_id) }}
@@ -41,7 +44,7 @@ jobs:
         uses: openjournals/find-similar-papers@main
         with:
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
-          issue_title: ${{ github.event.issue.title }}
+          issue_title: ${{ github.event.inputs.issue_title }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
       - name: Reply message
         if: steps.generate-files.outcome == 'success'
