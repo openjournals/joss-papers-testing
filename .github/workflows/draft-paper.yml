@@ -46,7 +46,6 @@ jobs:
         with:
           pdf_path: ${{ steps.generate-files.outputs.pdf_path}}
           issue_title: ${{ github.event.inputs.issue_title }}
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
       - name: Reply message
         if: steps.generate-files.outcome == 'success'
         run: |
